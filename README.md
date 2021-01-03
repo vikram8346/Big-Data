@@ -35,9 +35,7 @@ MapReduce is a programming model and an associated implementation for processing
 
 1.	**Graph Processing-** This project involved a graph processing algorithm that needs two map-reduce jobs. A directed graph is represented as a text file where each line represents a graph edge. For example, 20,40 represents the directed edge from node 20 to node 40. First, for each graph node, you compute the number of node neighbours. Then, you group the nodes by their number of neighbours and for each group you count how many nodes belong to this group. That is, the result will have lines such as: 10 30 which says that there are 30 nodes that have 10 neighbours.
 
-    To run the project, use the commands:
-
-    **rm -rf output**
+    To run the project, use the command:
 
     **~/hadoop-2.6.5/bin/hadoop jar target/*.jar Graph small-graph.txt output**
 
@@ -45,9 +43,7 @@ MapReduce is a programming model and an associated implementation for processing
 
 2.	**Matrix Multiplication-** This project implements multiplication of two sparse matrices using map-reduce. There are two small sparse matrices 4*3 and 3*3 in the files M-matrix-small.txt and N-matrix-small.txt for testing in standalone mode and moderate-sized matrices 200*100 and 100*300 in the files M-matrix-large.txt and M-matrix-large.txt for testing in distributed mode.
 
-    To run the project, use the commands:
-
-    **rm –rf intermediate output**
+    To run the project, use the command:
 
     **~/hadoop-2.6.5/bin/hadoop jar target/*.jar Multiply M-matrix-small.txt N-matrix-small.txt intermediate output**
 
@@ -55,9 +51,7 @@ MapReduce is a programming model and an associated implementation for processing
 
 3.	**Graph Partition-** This project implements a graph analysis using map-reduce. A directed graph is represented in the input text file using one line per graph vertex. For example, the line 1,2,3,4,5,6,7 represents the vertex with ID 1, which is linked to the vertices with IDs 2, 3, 4, 5, 6, and 7. The program partitions a graph into K clusters using multi-source BFS (breadth-first search). It selects K random graph vertices, called centroids, and then, at the first iteration, for each centroid, it assigns the centroid id to its unassigned neighbors. Then, at the second iteration. it assigns the centroid id to the unassigned neighbors of the neighbors, etc, in a breadth-first search fashion. After few repetitions, each vertex will be assigned to the centroid that needs the smallest number of hops to reach the vertex (the closest centroid).
 
-    To run the project, use the commands:
-    
-    **rm –rf intermediate output**
+    To run the project, use the command:
     
     **~/hadoop-2.6.5/bin/hadoop jar target/*.jar GraphPartition large-graph.txt intermediate output**
     
@@ -76,9 +70,7 @@ Apache Spark is an open-source distributed general-purpose cluster-computing fra
     
     The datasets used are random points on a plane in the squares (i*2+1,j*2+1)-(i*2+2,j*2+2), with 0≤i≤9 and 0≤j≤9 (so k=100 in k-means). The initial centroids in centroid.txt are the points (i*2+1.2,j*2+1.2). So the new centroids should be in the middle of the squares at (i*2+1.5,j*2+1.5).
 
-    To run the project, use the commands:
-
-    **rm –rf output**
+    To run the project, use the command:
 
     **~/spark-1.5.2-bin-hadoop2.6/bin/spark-submit --class KMeans target/*.jar points-small.txt centroids.txt**
 
@@ -96,9 +88,7 @@ Apache Spark is an open-source distributed general-purpose cluster-computing fra
 
     **tar xfz pig-0.16.0.tar.gz**
 
-    To run the project, use the commands:
-
-    **rm -rf output**
+    To run the project, use the command:
 
     **~/pig-0.16.0/bin/pig -x local -param G=small-graph.txt -param O=output graph.pig**
 
